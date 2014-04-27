@@ -1,0 +1,97 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', 'sans-serif';
+}
+
+
+.main {
+    height: 100%;
+    min-width: 980px;
+    display: flex;
+}
+.editors{
+    width: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.editors .editor {
+    height: 100%;
+    flex: 1;
+    border: 1px #ddd solid;
+
+}
+
+.editor .info {
+    padding: 10px
+}
+.editor .info h1{
+    padding: 0;
+    margin: 0;
+}
+
+.ace_content {
+  position: relative;
+}
+
+.ace_content::after {
+    content: "JSHINT";
+    font-size: 100px;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    margin: auto;
+    height: 200px;
+    line-height: 200px;
+    font-weight: 800;
+    opacity: 0.1;
+    text-transform: uppercase;
+}
+
+
+
+#editor-old-code .ace_content::after {
+    content: "before";
+    color: #f00;
+}
+
+
+#editor-jshint-config.error, #editor-old-code.error {
+    background: #F99DA5;
+}
+
+#editor-jshint-config .ace_content::after {
+    content: "jshint ";
+    color: #f00;
+}
+
+
+#editor-jshint-config.error .ace_content::after, #editor-old-code.error .ace_content::after  {
+    content: "Parse  \A Error";
+    color: black;
+    font-size: 60px;
+}
+
+#editor-new-code .ace_content::after {
+    content: "after";
+    color: #0f0;
+}
+
+
+.editors .editor .ace_marker-layer .ace_active-line {
+    opacity: 0.4;
+    background: #ddd;
+}
+#editor-new-code .ace_active-line {
+    background: transparent;
+}
