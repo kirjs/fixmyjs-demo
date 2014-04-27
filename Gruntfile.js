@@ -57,6 +57,16 @@ module.exports = function (grunt) {
             }
         },
 
+        requirejs: {
+            compile: {
+                options: {
+                    name: 'scripts/main',
+                    baseUrl: "<%= yeoman.app %>",
+                    mainConfigFile: "<%= yeoman.app %>/scripts/main.js",
+                    out: ".tmp/scripts/main.js"
+                }
+            }
+        },
         // The actual grunt server settings
         connect: {
             options: {
@@ -350,6 +360,7 @@ module.exports = function (grunt) {
         'uglify',
         'copy:dist',
         'rev',
+        'requirejs',
         'usemin',
         'htmlmin'
     ]);
